@@ -1,4 +1,6 @@
-class Instructor::CoursesController < ApplicationController
+#___________INSTRUCTOR____________
+
+lass Instructor::CoursesController < ApplicationController
     before_action :authenticate_user!
 
     def new
