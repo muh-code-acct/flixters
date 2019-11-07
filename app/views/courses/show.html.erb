@@ -20,4 +20,20 @@
             <%= @course.description %>
         </div>
     </div>
+
+    <div class="col-12">
+        <% @course.sections.each do |section| %>
+            <div class="section">
+                <%= section.title %>
+                <% section.lesson.each do |lesson| %>
+                    <div class="lesson">
+                        <%= link_to Lesson_path(lesson) do %>
+                        <b><%= lesson.title %></b>
+                        -
+                        <%= lesson.subtitle %>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+                
 </div>
