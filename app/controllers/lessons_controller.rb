@@ -13,8 +13,9 @@ class LessonsController < ApplicationController
   end
 
   def require_course_enrollment
-    if current_lesson.current_user != current_user.enrolled_in?(current_lesson.section.course)
-      redirect_to course_path(@course) , alert: 'Please enroll in the course to access lessons'
+    if !current_user.enrolled_in?(current_lesson.section.course)
+			redirect_to course_path(current_lesson.section.course),  
+			alert: 'Please enroll in the course to access lessons'
     end
   end
 end
